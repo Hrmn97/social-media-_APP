@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+   mongo:
+        container_name: db_container
+        image: mongo:3.6.19-xenial
+        restart: always
+        ports:
+           - "27017:27017"
+        volumes:
+           - mongo-data:/data/db
+        networks:
+           - mern-app
+   backend:
+        container_name: server
+        image: server/app:1
+        ports:
+          - "8001:8000"
+        networks:
+          - mern-app
+        depends_on:
+          - mongo
+   frontend:
+        build: 
+          context: ./client
+          dockerfile: Dockerfile
+        image: client/app:1
+        container_name: client
+        stdin_open: true
+        command: npm start
+        ports:
+          - "3000:3000"
+        networks:
+          - mern-app
+networks:
+  mern-app:
+       driver: bridge
+volumes:
+   mongo-data:
+        driver: local
