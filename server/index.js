@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
-const CONNECTION_URL = "mongodb://mongo:27017/myFirstDatabase"
+const CONNECTION_URL = "mongodb+srv://socialapp.zkbyytc.mongodb.net/myFirstDatabase"
 const PORT = process.env.PORT || 8000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
