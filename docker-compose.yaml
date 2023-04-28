@@ -7,7 +7,7 @@ services:
         image: server/app:1
         container_name: server
         ports:
-          - "8000:8000"
+          - "5000:5000"
         networks:
           - mern-app
    frontend:
