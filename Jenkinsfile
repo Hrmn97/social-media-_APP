@@ -1,7 +1,13 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage("Docker Compose Build"){
+
+    stages {
+        // stage('checkout') {
+        //     steps {
+        //         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/Hrmn97/social-media-_APP.git']])
+        //     }
+        // }
+        stage("Docker compose") {
             steps{
                 sh '''
                 ls
@@ -11,8 +17,9 @@ pipeline{
                 '''
             }
         }
+        
     }
-    post{
+     post{
         always{
             echo "Pipeline Completed check status"
         }
