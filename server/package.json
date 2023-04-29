@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "proxy": "http://localhost:3000",
+  "proxy": "http://35.225.210.40:3000",
   "scripts": {
     "start": "nodemon index.js"
   },
