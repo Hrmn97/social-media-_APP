@@ -27,3 +27,7 @@ mongoose
   .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set("useFindAndModify", false);
+
+const http = require('http');
+const server = http.createServer(app);
+server.listen(PORT);
